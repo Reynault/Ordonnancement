@@ -1,6 +1,6 @@
 package exercice1.comparator;
 
-import exercice1.Task;
+import exercice1.problem.Task;
 
 import java.util.Comparator;
 
