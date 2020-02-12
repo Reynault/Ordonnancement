@@ -15,9 +15,7 @@ public class SolverExercice2Question1 implements Solver {
         List<Task> tasks = problem.getTasks();
         List<Machine> machines = problem.getMachines();
 
-
-
-        if (machines.size() >= 2) {
+        if (machines != null && machines.size() >= 2) {
             Machine une = machines.get(0);
             Machine deux = machines.get(1);
 

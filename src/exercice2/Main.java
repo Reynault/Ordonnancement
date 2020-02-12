@@ -34,7 +34,7 @@ public class Main {
         problem = solverExercice2Question1.solve(problem);
 
         List<Machine> machines = problem.getMachines();
-        System.out.println("\n---------Question n°3: ");
+        System.out.println("\n---------Question n°1: ");
         System.out.println("Maximum tardiness: " + problem.getSolution());
         System.out.println("Schedule: ");
         for (Machine m : machines) {

@@ -49,7 +49,7 @@ public class SolverExercice1 implements Solver {
                 // we get the child with the minimum tardiness (the inferior bound)
                 min = Integer.MAX_VALUE;
                 for (int i = 0; i < childs.size(); i++) {
-                    boundary = childs.get(i).getInfBoundary();
+                    boundary = childs.get(i).getTardiness();
                     if (min > boundary) {
                         min = boundary;
                         best = i;

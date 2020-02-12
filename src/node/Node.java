@@ -51,12 +51,11 @@ public class Node {
     }
 
     /**
-     * Method that returns the inferior bound of the current
-     * node, which is simply the minimum tardiness. (The tardiness can't go below if
+     * Method that returns the tardiness of its children. (The tardiness can't go below if
      * we go down in the tree from this node)
      * @return the inferior bound
      */
-    public double getInfBoundary() {
+    public double getTardiness() {
         // we start from the end
         double endTime = cmax;
         double boundary = 0;
