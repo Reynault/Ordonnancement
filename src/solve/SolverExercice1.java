@@ -1,6 +1,8 @@
 package solve;
 
+import machine.Machine;
 import node.Node;
+import node.NodeExercice1;
 import problem.Problem;
 
 import java.util.ArrayList;
@@ -30,7 +32,7 @@ public class SolverExercice1 implements Solver {
      */
     public Problem solve(Problem problem) {
         // initialisation of the tree  (creation of the root)
-        Node current = new Node(problem.getTasks(), new ArrayList<>(), problem.getSumOfP());
+        Node current = new NodeExercice1(problem.getTasks(), new Machine(1), problem.getSumOfP());
         List<Node> childs;
         double min, boundary;
         int best = 0;
@@ -49,7 +51,7 @@ public class SolverExercice1 implements Solver {
                 // we get the child with the minimum tardiness (the inferior bound)
                 min = Integer.MAX_VALUE;
                 for (int i = 0; i < childs.size(); i++) {
-                    boundary = childs.get(i).getTardiness();
+                    boundary = childs.get(i).getValue();
                     if (min > boundary) {
                         min = boundary;
                         best = i;
@@ -61,9 +63,12 @@ public class SolverExercice1 implements Solver {
         }
 
         // and finally, the schedule to give is simply the reverse of the
-        // best node sequence
-        Collections.reverse(current.getCurrentSequence());
-        problem.setTasks(current.getCurrentSequence());
+        // best node sequence (which is is the machine)
+        List<Machine> m = current.getCurrentSequence();
+        if(!m.isEmpty()) {
+            Collections.reverse(m.get(0).getTasks());
+            problem.setTasks(m.get(0).getTasks());
+        }
 
         return problem;
     }
