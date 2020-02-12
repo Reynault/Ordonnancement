@@ -45,8 +45,8 @@ public class NodeExercice1 implements Node {
             newRemainingSequence.remove(t);
 
             m = new Machine(1);
-            m.setTasks(machine.getTasks());
-            machine.addTask(t);
+            m.setTasks(new ArrayList<>(machine.getTasks()));
+            m.addTask(t);
 
             childrens.add(new NodeExercice1(
                     newRemainingSequence, m, cmax
