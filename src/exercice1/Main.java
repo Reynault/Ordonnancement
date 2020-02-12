@@ -1,14 +1,19 @@
 package exercice1;
 
-import exercice1.comparator.ComparatorForTasks;
-import exercice1.problem.Problem;
-import exercice1.problem.Task;
-import exercice1.solver.Solver;
+import comparator.ComparatorForTasks;
+import machine.Machine;
+import problem.Problem;
+import problem.ProblemExercice1;
+import solve.SolverExercice1;
+import task.Task;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
+        System.out.println("Exercice n°1\n");
+
         ArrayList<Task> tasks = new ArrayList<>();
         tasks.add(new Task(1, 3, 16, 2));
         tasks.add(new Task(2, 7, 15, 3));
@@ -21,8 +26,8 @@ public class Main {
             System.out.println(task);
         }
 
-        Problem problem = new Problem(tasks);
-        double tardiness = problem.getTardiness(
+        Problem problem = new ProblemExercice1(tasks);
+        double tardiness = problem.getThingToMinimize(
                 ComparatorForTasks.sortByRatioDescending
         );
 
@@ -34,12 +39,13 @@ public class Main {
             System.out.println(task);
         }
 
-        Solver solver = new Solver();
-        problem = solver.solve(problem);
+        SolverExercice1 solverExercice1 = new SolverExercice1();
+        problem = solverExercice1.solve(problem);
+        List<Machine> machines = problem.getMachines();
         System.out.println("\n---------Question n°3: ");
-        System.out.println("Tardiness: "+problem.getTardiness());
+        System.out.println("Tardiness: "+problem.getSolution());
         System.out.println("Schedule: ");
-        for(Task task: problem.getTasks()){
+        for(Task task: machines.get(0).getTasks()){
             System.out.println(task);
         }
     }

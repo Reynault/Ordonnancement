@@ -1,6 +1,6 @@
-package exercice1.solver;
+package node;
 
-import exercice1.problem.Task;
+import task.Task;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,7 +15,7 @@ public class Node {
 
     /**
      * A node is created from a sequence to assign, a current sequence (for the root, it will be
-     * an empty list), and the cmax of the problem
+     * an empty list), and the cmax of the problem (which will be used to generate an inferior bound)
      * @param remainingSequence the remaining tasks to assign
      * @param currentSequence the current sequence of the root
      * @param cmax the end of all tasks

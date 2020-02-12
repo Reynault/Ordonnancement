@@ -1,6 +1,6 @@
-package exercice1.comparator;
+package comparator;
 
-import exercice1.problem.Task;
+import task.Task;
 
 import java.util.Comparator;
 
@@ -9,4 +9,5 @@ import java.util.Comparator;
  */
 public class ComparatorForTasks {
     public static final Comparator<Task> sortByRatioDescending = new SortByRatioDescending();
+    public static final Comparator<Task> sortByAscendingD = new SortByAscendingD();
 }

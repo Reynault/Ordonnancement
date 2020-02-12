@@ -1,4 +1,4 @@
-package exercice1.problem;
+package task;
 
 /**
  * a task of the problem

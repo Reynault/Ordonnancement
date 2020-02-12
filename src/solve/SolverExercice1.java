@@ -1,6 +1,7 @@
-package exercice1.solver;
+package solve;
 
-import exercice1.problem.Problem;
+import node.Node;
+import problem.Problem;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -8,27 +9,28 @@ import java.util.List;
 import java.util.Stack;
 
 /**
- * a solver that use a tree to retrieve a schedule for a problem
+ * a node that use a tree to retrieve a schedule for a problem
  */
-public class Solver {
+public class SolverExercice1 implements Solver {
     private Stack<Node> nodesToExplore;     // nodes yet to be explored
 
     /**
      * constructor that simply initialise the stack
      */
-    public Solver() {
+    public SolverExercice1() {
         this.nodesToExplore = new Stack<>();
     }
 
     /**
      * method that solve the problem given in parameter by
      * giving a schedule
+     *
      * @param problem the problem to solve
      * @return the schedule
      */
     public Problem solve(Problem problem) {
         // initialisation of the tree  (creation of the root)
-        Node current = new Node(problem.getTasks(), new ArrayList<>(), problem.getCmax());
+        Node current = new Node(problem.getTasks(), new ArrayList<>(), problem.getSumOfP());
         List<Node> childs;
         double min, boundary;
         int best = 0;
