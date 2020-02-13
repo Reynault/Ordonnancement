@@ -101,7 +101,6 @@ public class BranchAndBoundEx2 extends Solver {
      * @param node, node duquel on récupère la borne inférieure
      * @return noeud qui minimise le retard maximum
      */
-    //@Override
     protected List<Node> getInferiorBoundary(Node node) {
         List<Node> best = new ArrayList<>();
         List<Double> values = new ArrayList<>();
@@ -110,12 +109,12 @@ public class BranchAndBoundEx2 extends Solver {
         // Pour chaque enfant généré à l'aide des filtres et des séparateurs
         for(Node n: childs){
             value = problem.computeThingToMinimize(n.getPlanning()); // récupération du noeud avec le retard max minimal
-            values.add(value);
+            values.add(0,value);
             if(value < min){
                 min = value;
             }
         }
-        for(int i = 0; i < values.size(); i++){
+        for(int i = 0; i < childs.size(); i++){
             if(values.get(i) == min){
                 best.add(childs.get(i));
             }
