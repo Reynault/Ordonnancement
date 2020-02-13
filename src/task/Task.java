@@ -1,28 +1,35 @@
 package task;
 
 /**
- * a task of the problem
+ * Une tâche d'un problème
  */
 public final  class Task {
-    private final int id;   // an id to identify the task
-    private final int p;    // a time to do
-    private final int d;    // a deadline before being late
-    private final int w;    // a weight
-    private double ratio;   // the ratio : d / w
+    private final int id;   // un Id qui identifie la tâche
+    private final int p;    // un temps de réalisation
+    private final int d;    // une deadline
+    private final int w;    // un poids
+    private double ratio;   // le ratio : d / w
 
     /**
-     * a task is represented by:
-     * @param id an identifier
-     * @param p a time to do
-     * @param d a deadline
-     * @param w and a weight
+     * Une tâche est représentée par:
+     * @param id un identifieur
+     * @param p un temps de réalisation
+     * @param d une deadline
+     * @param w un poids
      */
     public Task(int id, int p, int d, int w) {
         this.id = id;
         this.p = p;
         this.d = d;
         this.w = w;
-        computeRatio(); // ratio is computing when created
+        computeRatio(); // calcul du ratio
+    }
+
+    /**
+     * Méthode de calcul du ratio
+     */
+    private void computeRatio() {
+        this.ratio = (double)d / (double)w;
     }
 
     public int getP() {
@@ -37,29 +44,22 @@ public final  class Task {
         return w;
     }
 
-    public int getId() {
-        return id;
-    }
-
-    /**
-     *
-     */
-    private void computeRatio() {
-        this.ratio = (double)d / (double)w;
-    }
-
     public double getRatio() {
         return ratio;
     }
 
     @Override
     public String toString() {
-        return "Task{" +
+        return "task.Task{" +
                 "id=" + id +
                 ", p=" + p +
                 ", d=" + d +
                 ", w=" + w +
                 ", ratio=" + ratio +
                 '}';
+    }
+
+    public int getId() {
+        return id;
     }
 }
